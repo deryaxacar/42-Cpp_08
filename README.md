@@ -58,7 +58,7 @@ Kapsayıcıların avantajları şunlardır:
     - **Avantaj**: Rastgele erişimin (örn. `v[5]`) çok hızlı olması, ekleme/çıkarma işlemlerinin (özellikle sondan ekleme/çıkarma) pratik olması.  
     - **Dezavantaj**: Ortalardan ekleme veya silme yapıldığında elemanların kaydırılması gerektiği için bu işlemlerin maliyeti artar.
 
-### Örnek Kullanım
+**Örnek**
 
 ```cpp
 #include <iostream>
