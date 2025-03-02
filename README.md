@@ -7,7 +7,9 @@
 
 
 ### İçindekiler 📚
-  - [](#)
+  - [Ex00 - Easy find](#ex00)
+  - [Ex01 - Span](#ex01)
+  - [Ex02 - Mutated abomination](#ex02)
 
 
 ---
