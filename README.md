@@ -30,6 +30,8 @@ Kapsayıcıların avantajları şunlardır:
 2. **Verimlilik**: Standart Kütüphane’deki kapsayıcılar çoğu kullanım senaryosu için optimize edilmiştir.  
 3. **Kolaylık**: Aynı kapsayıcı yapısı farklı veri türlerinde kullanılabilir (templateler aracılığıyla).
 
+---
+
 ### Iterator (yineleyici) Nedir?
 
 **Iterator (yineleyici)**, kapsayıcılardaki veriler arasında gezinmeyi ve onlara erişimi sağlayan bir yapıdır. Genellikle, C++’ta dizilerde veya STL kapsayıcılarında kullanılabilen `pointer` benzeri nesnelerdir. Örneğin:
@@ -42,6 +44,8 @@ Kapsayıcıların avantajları şunlardır:
 1. **Abstraction (Soyutlama)**: Gerçek bellek adresi ile uğraşmadan elemanlara erişim sağlanır.  
 2. **Taşınabilirlik**: Aynı kodu, farklı kapsayıcı tiplerinde yineleyicilerle kullanabilirsiniz.  
 3. **Çeşitlilik**: C++’ta birden çok iterator kategorisi vardır (örneğin, `input_iterator`, `forward_iterator`, `bidirectional_iterator`, `random_access_iterator` gibi). Bu kategoriler, hangi operasyonları destekleyebileceklerini belirler.
+
+---
 
 ### Vector Nedir?
 
