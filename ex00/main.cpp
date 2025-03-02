@@ -1,10 +1,10 @@
 #include "easyfind.hpp"
 
 template <typename T>
-void tryFind(T &container, int value) {
+void tryFind(T& container, int value) {
     try {
         typename T::iterator it = easyfind(container, value);
-        cout << "Found Value: " << *it << endl;
+        cout << "Found Element: " << *it << endl;
     } catch (const exception &e) {
         cerr << e.what() << endl;
     }
