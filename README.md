@@ -16,7 +16,7 @@
 
 ---
 
-## Container (Kapsayıcı) Nedir?
+## Container (kapsayıcı) Nedir?
 
 **Container**, belirli bir türdeki verileri belirli bir bellek düzeninde tutan yapılardır. C++ dilindeki Standart Kütüphane’de (STL — Standard Template Library), sıkça kullanılan birçok container çeşidi vardır (örneğin, `vector`, `list`, `deque`, `map`, `set` vb.). Kapsayıcılar şu işlevleri gerçekleştirir:
 
@@ -30,7 +30,7 @@ Kapsayıcıların avantajları şunlardır:
 2. **Verimlilik**: Standart Kütüphane’deki kapsayıcılar çoğu kullanım senaryosu için optimize edilmiştir.  
 3. **Kolaylık**: Aynı kapsayıcı yapısı farklı veri türlerinde kullanılabilir (templateler aracılığıyla).
 
-## Iterator (Yineleyici) Nedir?
+## Iterator (yineleyici) Nedir?
 
 **Iterator (yineleyici)**, kapsayıcılardaki veriler arasında gezinmeyi ve onlara erişimi sağlayan bir yapıdır. Genellikle, C++’ta dizilerde veya STL kapsayıcılarında kullanılabilen `pointer` benzeri nesnelerdir. Örneğin:
 
