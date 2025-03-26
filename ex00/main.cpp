@@ -1,19 +1,32 @@
 #include "easyfind.hpp"
 
 template <typename T>
-void tryFind(T& container, int value) {
-    try {
+void tryFind(T &container, int value)
+{
+    try
+    {
         typename T::iterator it = easyfind(container, value);
         cout << "Found Element: " << *it << endl;
-    } catch (const exception &e) {
+    }
+    catch (const exception &e)
+    {
         cerr << e.what() << endl;
     }
 }
 
-int main() {
+int main()
+{
     int arr[] = {10, 20, 30, 40, 50};
     vector<int> vec(arr, arr + 5);
-    
+
+    arr[0] = 100;
+
+    cout << "-------------------- arr[0] -------------------" << endl;
+    cout << arr[0] << endl;
+
+    cout << "-------------------- vec[0] -------------------" << endl;
+    cout << vec[0] << endl;
+
     cout << "-------------------- VEC -------------------" << endl;
 
     tryFind(vec, 30);
@@ -25,7 +38,7 @@ int main() {
     lst.push_back(25);
     lst.push_back(35);
     lst.push_back(45);
-   
+
     cout << "-------------------- LST -------------------" << endl;
 
     tryFind(lst, 25);
