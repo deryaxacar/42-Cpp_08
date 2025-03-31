@@ -5,10 +5,8 @@
 <p align="center">
 </p>
 
-
 ### İçindekiler 📚
-### İçindekiler 📚
-  - [Ex00 - Easy find](#ex00)
+  - [Ex00 - Easy find](#ex00---easy-find)
     - [Container (kapsayıcı) Nedir?](#container-kapsayici-nedir)
     - [Iterator (yineleyici) Nedir?](#iterator-yineleyici-nedir)
     - [Vector Nedir?](#vector-nedir)
@@ -19,11 +17,18 @@
     - [Performanslı Yaklaşım](#performansli-yaklasim)
     - [addRange Fonksiyonu](#addrange-fonksiyonu)
   - [Ex02 - Mutated Abomination](#ex02---mutated-abomination)
-
+    - [Stack Nedir?](#stack-nedir)
+    - [std::stack ve Iterator Sorunu](#stdstack-ve-iterator-sorunu)
+    - [MutantStack Nedir?](#mutantstack-nedir)
+    - [deque ve container_type](#deque-ve-container_type)
+    - [Örnek Kullanım](#ornek-kullanim)
+    - [Avantajlar](#avantajlar)
 
 ---
 
-### Container (kapsayıcı) Nedir?
+### <a name="ex00---easy-find"></a>Ex00 - Easy find
+
+### <a name="container-kapsayici-nedir"></a>Container (kapsayıcı) Nedir?
 
 **Container**, belirli bir türdeki verileri belirli bir bellek düzeninde tutan yapılardır. C++ dilindeki Standart Kütüphane’de (STL — Standard Template Library), sıkça kullanılan birçok container çeşidi vardır (örneğin, `vector`, `list`, `deque`, `map`, `set` vb.). Kapsayıcılar şu işlevleri gerçekleştirir:
 
@@ -39,7 +44,7 @@ Kapsayıcıların avantajları şunlardır:
 
 ---
 
-### Iterator (yineleyici) Nedir?
+### <a name="iterator-yineleyici-nedir"></a>Iterator (yineleyici) Nedir?
 
 **Iterator (yineleyici)**, kapsayıcılardaki veriler arasında gezinmeyi ve onlara erişimi sağlayan bir yapıdır. Genellikle, C++’ta dizilerde veya STL kapsayıcılarında kullanılabilen `pointer` benzeri nesnelerdir. Örneğin:
 
@@ -54,7 +59,7 @@ Kapsayıcıların avantajları şunlardır:
 
 ---
 
-### Vector Nedir?
+### <a name="vector-nedir"></a>Vector Nedir?
 
 **Vector**, C++ dilinde en sık kullanılan kapsayıcılardan biridir. Dinamik boyutlu bir dizi (array) gibi davranır; yani bellek alanı yetmediğinde kendine ayrılan alanı otomatik olarak genişletir. Başlıca özellikleri:
 
@@ -92,7 +97,7 @@ int main() {
 
 ---
 
-### <a name="ex01"></a>Ex01 - Span
+### <a name="ex01---span"></a>Ex01 - Span
 
 #### Span Nedir?
 
@@ -137,7 +142,79 @@ template <typename Iterator>
 void addRange(Iterator begin, Iterator end);
 ```
 
+---
 
+### <a name="ex02---mutated-abomination"></a>Ex02 - Mutated Abomination
+
+#### Stack Nedir?
+
+**Stack**, LIFO (Last-In First-Out) mantığıyla çalışan bir veri yapısıdır. `std::stack`, `push`, `pop`, `top`, `empty`, `size` gibi temel işlemleri destekler. Ancak STL’de `std::stack` iterable değildir.
+
+---
+
+#### std::stack ve Iterator Sorunu
+
+`std::stack`, iterator desteklemez çünkü `begin()` ve `end()` metodları yoktur. Bu, `for` döngüsü ile gezinmeyi imkansız hale getirir. Örneğin:
+
+```cpp
+std::stack<int> s;
+// s.begin() -> derleme hatası
+```
+
+#### MutantStack Nedir?
+
+MutantStack, `std::stack`’i kalıtım yoluyla genişletip iterator desteği ekleyen özel bir sınıftır. Böylece stack içeriği üzerinde `begin()` / `end()` kullanarak gezinmek mümkün hale gelir.
+
+```cpp
+template<typename T>
+class MutantStack : public std::stack<T> {
+public:
+    typedef typename std::stack<T>::container_type::iterator iterator;
+
+    iterator begin() { return this->c.begin(); }
+    iterator end()   { return this->c.end(); }
+};
+
+```
+
+#### deque ve container_type
+
+`std::stack`, aslında `std::deque`'i temel alır. `container_type`, `stack`’in kullandığı bu yapıya erişmeyi sağlar. Bu sayede `stack`’in elemanlarına direkt olarak iterator ile ulaşabiliriz.
+
+```cpp
+int main() {
+    MutantStack<int> mstack;
+
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << mstack.size() << std::endl;
+
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    mstack.push(0);
+
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+
+    while (it != ite) {
+        std::cout << *it << std::endl;
+        ++it;
+    }
+
+    return 0;
+}
+```
+
+#### Avantajlar
+
+- `std::stack`’in tüm özellikleri korunur.
+
+- Iterator desteği ile kolay `test`, `debug` ve `algoritma` işlemleri yapılabilir.
+
+- `std::list` ile aynı çıktıyı verecek şekilde test edilebilir.
 
 ---
 
