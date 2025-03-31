@@ -12,7 +12,7 @@
     - [Vector Nedir?](#vector-nedir)
   - [Ex01 - Span](#ex01---span)
     - [Span Nedir?](#span-nedir)
-    - [Span ile İlgili Kavramlar 🔎](#span-ile-ilgili-kavramlar-)
+    - [Span ile İlgili Kavramlar](#span-ile-ilgili-kavramlar)
     - [STL Fonksiyonları](#stl-fonksiyonlari-stdsort-stddistance)
     - [Performanslı Yaklaşım](#performansli-yaklasim)
     - [addRange Fonksiyonu](#addrange-fonksiyonu)
@@ -21,7 +21,6 @@
     - [std::stack ve Iterator Sorunu](#stdstack-ve-iterator-sorunu)
     - [MutantStack Nedir?](#mutantstack-nedir)
     - [deque ve container_type](#deque-ve-container_type)
-    - [Örnek Kullanım](#ornek-kullanim)
     - [Avantajlar](#avantajlar)
 
 ---
@@ -105,7 +104,7 @@ int main() {
 
 ---
 
-### Span ile İlgili Kavramlar 🔎
+### <a name="span-ile-ilgili-kavramlar"></a>Span ile İlgili Kavramlar
 
 #### Sayılar Arasındaki Mesafe (Span)
 
@@ -119,7 +118,7 @@ int main() {
 
 ---
 
-### STL Fonksiyonları (std::sort, std::distance)
+### <a name="stl-fonksiyonlari-stdsort-stddistance"></a>STL Fonksiyonları (std::sort, std::distance)
 
 - `std::sort`: Vektörü sıralamak için kullanılır, çünkü shortest span hesaplamak için sıralama gerekir.
 
@@ -128,7 +127,7 @@ int main() {
    ```
 - `std::distance`: İki iterator arasındaki eleman sayısını verir. Span hesaplamasında dolaylı kullanılır.
 
-### Performanslı Yaklaşım
+### <a name="performansli-yaklasim"></a>Performanslı Yaklaşım
 
 - Kısa span: Vektörü sırala, ardından ardışık farkların minimumunu bul.
 - Uzun span: Min ve max değerlerin farkını al.
