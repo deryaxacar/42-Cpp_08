@@ -3,7 +3,11 @@
 </div>
 
 <p align="center">
+<p align="center">
+  Bu proje, STL (Standard Template Library) kullanımı üzerine üç temel egzersiz içermektedir. İlk bölümde STL kapsayıcılarda arama yapan generic bir <code>easyfind</code> fonksiyonu, ikinci bölümde sayılar arasındaki farkları hesaplayan <code>Span</code> sınıfı, üçüncü bölümde ise iterator destekli <code>MutantStack</code> sınıfı geliştirilmiştir. Proje, C++’ta şablonlar, kapsayıcılar ve algoritmalara hakimiyeti artırmayı hedefler.
 </p>
+
+
 
 ### İçindekiler 📚
   - [Ex00 - Easy find](#ex00---easy-find)
