@@ -7,12 +7,19 @@
 
 
 ### İçindekiler 📚
+### İçindekiler 📚
   - [Ex00 - Easy find](#ex00)
-    - [Container (kapsayıcı) Nedir?](#container-nedir)
-    - [Iteratör (yineleyici) Nedir?](#iterator-nedir)
+    - [Container (kapsayıcı) Nedir?](#container-kapsayici-nedir)
+    - [Iterator (yineleyici) Nedir?](#iterator-yineleyici-nedir)
     - [Vector Nedir?](#vector-nedir)
-  - [Ex01 - Span](#ex01)
-  - [Ex02 - Mutated abomination](#ex02)
+  - [Ex01 - Span](#ex01---span)
+    - [Span Nedir?](#span-nedir)
+    - [Span ile İlgili Kavramlar 🔎](#span-ile-ilgili-kavramlar-)
+    - [STL Fonksiyonları](#stl-fonksiyonlari-stdsort-stddistance)
+    - [Performanslı Yaklaşım](#performansli-yaklasim)
+    - [addRange Fonksiyonu](#addrange-fonksiyonu)
+  - [Ex02 - Mutated Abomination](#ex02---mutated-abomination)
+
 
 ---
 
@@ -84,6 +91,53 @@ int main() {
 ```
 
 ---
+
+### <a name="ex01"></a>Ex01 - Span
+
+#### Span Nedir?
+
+**Span**, belli sayıda tamsayıyı saklayabilen bir kapsayıcı sınıftır ve bu tamsayılar arasındaki en kısa ve en uzun mesafeyi (span) hesaplamak amacıyla kullanılır.
+
+---
+
+### Span ile İlgili Kavramlar 🔎
+
+#### Sayılar Arasındaki Mesafe (Span)
+
+İki tamsayı arasındaki mesafe, mutlak farkları ile hesaplanır:
+
+- Örnek: `|3 - 9| = 6`
+
+**Shortest Span**, birbiri ardına gelen iki sayı arasındaki en küçük farktır.
+
+**Longest Span**, en küçük ve en büyük sayı arasındaki farktır.
+
+---
+
+### STL Fonksiyonları (std::sort, std::distance)
+
+- `std::sort`: Vektörü sıralamak için kullanılır, çünkü shortest span hesaplamak için sıralama gerekir.
+
+  ```cpp
+  std::sort(vec.begin(), vec.end());
+   ```
+- `std::distance`: İki iterator arasındaki eleman sayısını verir. Span hesaplamasında dolaylı kullanılır.
+
+### Performanslı Yaklaşım
+
+- Kısa span: Vektörü sırala, ardından ardışık farkların minimumunu bul.
+- Uzun span: Min ve max değerlerin farkını al.
+
+#### addRange() Fonksiyonu
+
+`std::vector`, `std::list`, `std::set` gibi kapsayıcılardan Span nesnesine toplu şekilde eleman eklemek için iterator aralığı alan bir `addRange()` fonksiyonu yazılmalıdır:
+
+```cpp
+template <typename Iterator>
+void addRange(Iterator begin, Iterator end);
+```
+
+
 
 ---
 
