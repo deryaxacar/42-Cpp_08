@@ -11,24 +11,22 @@ using std::stack;
 template <typename T>
 class MutantStack : public stack<T>
 {
-public:
-    MutantStack() {}
+    public:
+        MutantStack() {}
+        MutantStack(const MutantStack &other) : stack<T>(other) {}
+    
+        MutantStack &operator=(const MutantStack &other)
+        {
+            if (this != &other)
+                stack<T>::operator=(other);
+            return *this;
+        }
+    
+        ~MutantStack() {}
 
-    MutantStack(const MutantStack &other) : stack<T>(other) {}
-
-    MutantStack &operator=(const MutantStack &other)
-    {
-        if (this != &other)
-            stack<T>::operator=(other);
-        return *this;
-    }
-
-    ~MutantStack() {}
-
-    typedef typename stack<T>::container_type::iterator iterator;
-
-    iterator begin() { return stack<T>::c.begin(); }
-    iterator end() { return stack<T>::c.end(); }
-
+        typedef typename stack<T>::container_type::iterator iterator;
+    
+        iterator begin() { return stack<T>::c.begin(); }
+        iterator end() { return stack<T>::c.end(); }
 
 };
