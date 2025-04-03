@@ -27,13 +27,8 @@ public:
 
     typedef typename stack<T>::container_type::iterator iterator;
 
-    iterator begin()
-    {
-        return stack<T>::c.begin();
-    }
+    iterator begin() { return stack<T>::c.begin(); }
+    iterator end() { return stack<T>::c.end(); }
 
-    iterator end()
-    {
-        return stack<T>::c.end();
-    }
+
 };
