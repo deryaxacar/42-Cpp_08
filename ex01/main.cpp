@@ -22,6 +22,7 @@ int main()
     {
         cout << "--------------------- ERR --------------------" << endl;
         cerr << e.what() << endl;
+        return 1;
     }
 
     try
@@ -41,6 +42,7 @@ int main()
     catch (const exception &e)
     {
         cerr << e.what() << endl;
+        return 1;
     }
 
     return 0;
