@@ -11,6 +11,7 @@ void tryFind(T &container, int value)
     catch (const exception &e)
     {
         cerr << e.what() << endl;
+        return 1;
     }
 }
 
